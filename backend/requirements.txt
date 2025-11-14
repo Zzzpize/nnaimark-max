@@ -7,3 +7,4 @@ python-dotenv
 fastapi-cors
 maxapi[webhook]
 supervisor 
+psycopg2-binary

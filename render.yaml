@@ -1,0 +1,38 @@
+services:
+  - type: psql
+    name: nneimark-db
+    plan: free
+
+  - type: web
+    name: backend
+    plan: free
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        fromService:
+          type: psql
+          name: nneimark-db
+          property: connectionString
+      - key: GIGACHAT_CREDENTIALS
+        sync: false
+      - key: MAX_BOT_TOKEN
+        sync: false
+      - key: MAX_BOT_NAME
+        sync: false
+
+  - type: web
+    name: frontend
+    plan: free
+    runtime: docker
+    dockerfilePath: ./frontend/Dockerfile
+    routes:
+      - type: rewrite
+        source: /api/*
+        destination: /api/*
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    rewrites:
+      - source: /api/:path*
+        destination: https://backend-твой-уникальный-id.onrender.com/api/:path*
