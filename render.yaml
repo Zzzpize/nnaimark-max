@@ -1,4 +1,6 @@
+
 services:
+
   - type: web
     name: backend
     plan: free
@@ -21,13 +23,6 @@ services:
     plan: free
     runtime: docker
     dockerfilePath: ./frontend/Dockerfile
-    routes:
-      - type: rewrite
-        source: /api/*
-        destination: /api/*
-      - type: rewrite
-        source: /*
-        destination: /index.html
 
 databases:
   - name: nneimark-db
