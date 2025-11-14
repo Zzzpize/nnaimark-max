@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+gigachat
+maxapi
+python-dotenv
+fastapi-cors
+maxapi[webhook]
+supervisor 
