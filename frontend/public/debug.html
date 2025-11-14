@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Mini App</title>
+    <script src="https://st.max.ru/js/max-web-app.js"></script>
+    <style>
+        body { font-family: monospace; word-break: break-all; padding: 10px; background-color: #f0f0f0; }
+        h1 { color: #333; }
+        pre { background-color: #fff; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Debug Page</h1>
+    <pre id="output">Initializing...</pre>
+
+    <script>
+        let attempts = 0;
+        const maxAttempts = 20;
+        const output = document.getElementById('output');
+
+        const intervalId = setInterval(() => {
+            attempts++;
+            const WebApp = window.WebApp;
+
+            if (WebApp && WebApp.initDataUnsafe && WebApp.initDataUnsafe.user) {
+                clearInterval(intervalId);
+                output.textContent = "SUCCESS!\n\n" + JSON.stringify(WebApp.initDataUnsafe, null, 2);
+                WebApp.ready();
+            } else if (attempts >= maxAttempts) {
+                clearInterval(intervalId);
+                output.textContent = 'ERROR: window.WebApp did not initialize in time.';
+            }
+        }, 200);
+    </script>
+</body>
+</html>
