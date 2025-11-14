@@ -1,25 +1,20 @@
 services:
-  - type: database
-    name: nneimark-db
-    plan: free 
-
   - type: web
     name: backend
-    plan: free 
+    plan: free
     runtime: docker
     dockerfilePath: ./backend/Dockerfile
     envVars:
       - key: DATABASE_URL
-        fromService:
-          type: database
+        fromDatabase:
           name: nneimark-db
           property: connectionString
       - key: GIGACHAT_CREDENTIALS
-        sync: false 
+        sync: false
       - key: MAX_BOT_TOKEN
-        sync: false 
+        sync: false
       - key: MAX_BOT_NAME
-        sync: false 
+        sync: false
 
   - type: web
     name: frontend
@@ -28,8 +23,12 @@ services:
     dockerfilePath: ./frontend/Dockerfile
     routes:
       - type: rewrite
-        source: /api/:path*
-        destination: http://backend:8000/api/:path*
+        source: /api/*
+        destination: /api/*
       - type: rewrite
         source: /*
         destination: /index.html
+
+databases:
+  - name: nneimark-db
+    plan: free
