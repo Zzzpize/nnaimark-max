@@ -1,11 +1,10 @@
-
 services:
-
   - type: web
     name: backend
     plan: free
     runtime: docker
-    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend 
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -22,7 +21,8 @@ services:
     name: frontend
     plan: free
     runtime: docker
-    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend
+    dockerfilePath: ./Dockerfile
 
 databases:
   - name: nneimark-db
