@@ -1,12 +1,14 @@
-# Nneimark AI ✨ Ваш персональный AI-навигатор целей
+# NNAImark ✨ Ваш персональный AI-навигатор целей
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-0.95-green?logo=fastapi) ![React](https://img.shields.io/badge/React-18-blue?logo=react&logoColor=61DAFB) ![Docker](https://img.shields.io/badge/Docker-20.10-blue?logo=docker&logoColor=white) ![GigaChat](https://img.shields.io/badge/GigaChat-API-red?logo=sber&logoColor=white)
 
 **NNAImark** — это не просто таск-менеджер. Это интеллектуальный ассистент, интегрированный в мессенджер MAX как Mini App, который превращает ваши самые смелые идеи и амбициозные цели в конкретные, пошаговые и управляемые планы действий (роадмапы).
 
 
-[**Бот в мессенджере Max**](https://max.ru/t166_hakaton_bot)
+![**Бот в мессенджере Max**](https://max.ru/t166_hakaton_bot)
 
+
+![Демонстрация работы Nneimark AI](./assets/demo.gif)
 
 ---
 
